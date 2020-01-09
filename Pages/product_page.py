@@ -24,3 +24,15 @@ class ProductPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def compare_product_names(self):
+        product_base_name = str(self.browser.find_element(*ProductPageLocators.PRODUCT_ITEM_NAME).text)
+        product_alert_name = str(self.browser.find_element(*ProductPageLocators.PRODUCT_ALERT_RESPONSE).text)
+        assert product_base_name == product_alert_name, "Product name is {product}, alert name is {alert}".format(
+            product=product_base_name, alert=product_alert_name)
+
+    def compare_solo_item_and_cart_price(self):
+        item_price = str(self.browser.find_element(*ProductPageLocators.PRODUCT_ITEM_PRICE).text)
+        cart_price = str(self.browser.find_element(*ProductPageLocators.PRODUCT_FINAL_CART_PRICE).text)
+        assert item_price == cart_price, "Item price is {item}, cart price is {cart}".format(item=item_price,
+                                                                                             cart=cart_price)

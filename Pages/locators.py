@@ -19,3 +19,8 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     PRODUCT_BUTTON_ADD_ITEM_TO_CART = (By.XPATH, '//button[@class="btn btn-lg btn-primary btn-add-to-basket"]')
+    PRODUCT_ALERT_RESPONSE = (By.XPATH, '//div[@class="alertinner "]/strong')
+    PRODUCT_ITEM_NAME = (By.XPATH, '//div/h1')
+    PRODUCT_ITEM_PRICE = (By.XPATH, '//div[@class="col-sm-6 product_main"]/p[@class="price_color"]')
+    PRODUCT_FINAL_CART_PRICE = (By.XPATH, '//div[@class="alert alert-safe alert-noicon alert-info  fade in"]//strong')
+
