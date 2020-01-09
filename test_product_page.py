@@ -1,5 +1,5 @@
 from .Pages.product_page import ProductPage
-import time
+from .Pages.basket_page import BasketPage
 import pytest
 
 link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
@@ -59,3 +59,12 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com"
+    page = BasketPage(browser, link)
+    page.open()
+    page.go_to_cart_page()
+    page.should_have_empty_list_text()
+    page.should_not_be_items_in_cart()
