@@ -36,3 +36,11 @@ class ProductPage(BasePage):
         cart_price = str(self.browser.find_element(*ProductPageLocators.PRODUCT_FINAL_CART_PRICE).text)
         assert item_price == cart_price, "Item price is {item}, cart price is {cart}".format(item=item_price,
                                                                                              cart=cart_price)
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.PRODUCT_ALERT_RESPONSE), "Success message is presented, but should not be"
+
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.PRODUCT_ALERT_RESPONSE), "Success message should disappear, but it didn't"

@@ -2,6 +2,7 @@ from .Pages.product_page import ProductPage
 import time
 import pytest
 
+link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -22,3 +23,26 @@ def test_product_page(browser, link):
     product_page.solve_quiz_and_get_code()
     product_page.compare_product_names()
     product_page.compare_solo_item_and_cart_price()
+
+
+@pytest.mark.xfail
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, link):
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.add_product_to_cart()
+    product_page.should_not_be_success_message()
+
+
+@pytest.mark.xfail
+def test_guest_cant_see_success_message(browser, link):
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.should_not_be_success_message()
+
+
+@pytest.mark.xfail
+def test_message_disappeared_after_adding_product_to_basket(browser, link):
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.add_product_to_cart()
+    product_page.success_message_should_disappear()

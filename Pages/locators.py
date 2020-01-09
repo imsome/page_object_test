@@ -23,4 +23,5 @@ class ProductPageLocators:
     PRODUCT_ITEM_NAME = (By.XPATH, '//div/h1')
     PRODUCT_ITEM_PRICE = (By.XPATH, '//div[@class="col-sm-6 product_main"]/p[@class="price_color"]')
     PRODUCT_FINAL_CART_PRICE = (By.XPATH, '//div[@class="alert alert-safe alert-noicon alert-info  fade in"]//strong')
+    PRODUCT_SUCCESS_MESSAGE = (By.XPATH, '')
 
