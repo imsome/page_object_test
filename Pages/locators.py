@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class MainPageLocators():
-    LOGIN_LINK = (By.XPATH, "//li/a[@id='registration_link']")
+    LOGIN_LINK = (By.XPATH, '//a[@id="login_link"]')
 
 
 class LoginPageLocators():
