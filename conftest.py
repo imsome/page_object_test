@@ -7,7 +7,7 @@ def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store', default="es",
-                     help="Choose language: es or ru")
+                     help="Choose language: es, ru, fr, etc...")
 
 
 @pytest.fixture(scope="function")
@@ -27,8 +27,6 @@ def browser(request):
         browser = webdriver.Firefox(firefox_profile=fp)
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
-    if browser_language not in ["es", "ru"]:
-        raise pytest.UsageError("--language should be ru or es")
     yield browser
     print("\nquit browser..")
     browser.quit()

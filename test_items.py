@@ -7,4 +7,4 @@ def test_page_should_contain_add_to_cart_button(browser):
     try:
         button = browser.find_element_by_xpath('//button[@type="submit"][@class="btn btn-lg btn-primary btn-add-to-basket"]')
     except NoSuchElementException:
-        return False
+        assert False, "Can't find button element"
