@@ -5,6 +5,7 @@ class BasePageLocators:
     LOGIN_LINK = (By.XPATH, '//a[@id="login_link"]')
     LOGIN_LINK_INVALID = (By.XPATH, '//a[@id="login_link_inc"')
     CART_BUTTON = (By.XPATH, '//a[@class="btn btn-default"]')
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class BasketPageLocators:

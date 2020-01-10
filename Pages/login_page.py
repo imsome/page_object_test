@@ -27,3 +27,9 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD_TEXTBOX)
         self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON_TO_REGISTER)
         assert True
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REGISTER_EMAIL_TEXTBOX).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD_TEXTBOX).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD_TEXTBOX).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON_TO_REGISTER).click()
